@@ -34,6 +34,7 @@ def most_uncertain_values():
 	count_coloumns = 0
 	max_rows = 0
 	max_columns = 0
+	map_holes = {}
 	for i in range(shape1):
 		for j in range(shape1):
 			#add the condition for the equal checking 
@@ -41,7 +42,6 @@ def most_uncertain_values():
 				holes_arry[i,j] = array_1[i,j]
 			else:
 				holes_arry[i,j] = -1
-
 
 
 	return holes_arry
