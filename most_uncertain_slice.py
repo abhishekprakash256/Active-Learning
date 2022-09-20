@@ -5,15 +5,16 @@ The most uncertain slices in the
 
 import numpy as np 
 import time 
+from statistics import mode
 
 
 #make the numpy array 
 
 global array_1 
-array_1= np.random.randint(low=0,high=2, size = (4,4) ,dtype=int)
+array_1= np.random.randint(low=0,high=2, size = (400,400) ,dtype=int)
 
 global array_2 
-array_2 = np.random.randint(low=0,high=2, size = (4,4) ,dtype=int)
+array_2 = np.random.randint(low=0,high=2, size = (400,400) ,dtype=int)
 
 
 
@@ -43,15 +44,16 @@ def most_uncertain_values():
 			if array_1[i,j] == array_2[i,j]:
 				holes_arry[i,j] = array_1[i,j] 
 			else:
-				holes_arry[i,j] = -1
+				holes_arry[i,j] = 255
 				column_lst.append(j)
 				row_lst.append(i)
 	
-	for a,b in zip(row_lst,column_lst):
-		
+	most_uncertain_column = mode(column_lst)
+	most_uncertain_rows = mode(row_lst)
 
-
-	return holes_arry
+	print("the most uncertain column", most_uncertain_column)
+	print("the most uncertain rows", most_uncertain_rows)
+	return None
 
 
 if __name__ == '__main__':
